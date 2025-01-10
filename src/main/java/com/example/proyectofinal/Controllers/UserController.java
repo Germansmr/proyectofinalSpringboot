@@ -1,25 +1,15 @@
 package com.example.proyectofinal.Controllers;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import com.models.ProductType;
-import com.models.Producto;
+import com.example.proyectofinal.models.ProductType;
+import com.example.proyectofinal.models.Producto;
 
 
 
@@ -33,10 +23,18 @@ public class UserController {
 
     static {
         //Añadimos algunos usuarios iniciales
-        tipoProductos.add(new ProductType(1, "Mesa", "Diferentes tipos de mesa para el comedor"));
-        tipoProductos.add(new ProductType(2, "Televisor", "Módulos para poner un televisor"));
-        tipoProductos.add(new ProductType(3, "Silla", "Diferentes tipos de sillas y sillones"));
-        tipoProductos.add(new ProductType(4, "Sofá", "Tresillo, sofa modular y chaiselonge"));
+        tipoProductos.add(new ProductType(1L, "Mesa", "Diferentes tipos de mesa para el comedor"));
+        tipoProductos.add(new ProductType(2L, "Televisor", "Módulos para poner un televisor"));
+        tipoProductos.add(new ProductType(3L, "Silla", "Diferentes tipos de sillas y sillones"));
+        tipoProductos.add(new ProductType(4L, "Sofá", "Tresillo, sofa modular y chaiselonge"));
+    }
+
+    static {
+        //Añadimos algunos usuarios iniciales
+        productos.add(new Producto(1L, "Mesa circular Razor", 200L, 1L ));
+        productos.add(new Producto(2L, "Módulo televisor Sinair", 850L, 2L));
+        productos.add(new Producto(3, "Silla metálica Candy", 180L, 3L));
+        productos.add(new Producto(4, "Sillón chaiselonge Roma", 1200L, 4L));
     }
 
     
@@ -47,6 +45,15 @@ public class UserController {
         model.addAttribute("tipProduc", tipoProductos);
         
         return "productTypeList"; //Nombre del HTML que llamamos
+
+    }    
+    //Nombre que usaremos en el "localhost:8080/ListadoTipoProductos"
+    @GetMapping("/ListadoProductos")
+    //Creamos el model que hara de base de datos guardando la informacion
+    public String listProd(Model model) {
+        model.addAttribute("produc", productos);
+        
+        return "productList"; //Nombre del HTML que llamamos
 
     }    
 
@@ -76,9 +83,9 @@ public class UserController {
         
         return "userCreated";
     }
-    
+    */
     //Ejercicio FORMULARIO
-
+    /*
     //Coge los datos del usuario y crea un user a null
     @GetMapping("/anyadir")
         public String greetingForm(Model model) {
@@ -86,7 +93,8 @@ public class UserController {
         //Returna anyadir html
         return "anyadir";
     }
-
+    */
+    /*
     //Manda los datos a la pagina de resultados
     @PostMapping("/resultado")
     public String greetingSubmit(@ModelAttribute User user, Model model) {

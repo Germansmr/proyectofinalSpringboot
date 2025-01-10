@@ -1,4 +1,4 @@
-package com.models;
+package com.example.proyectofinal.models;
 
 public class ProductType {
     

@@ -1,4 +1,4 @@
-package com.models;
+package com.example.proyectofinal.models;
 
 public class Producto {
 
@@ -13,8 +13,8 @@ public class Producto {
         this.id = id;
         this.name = name;
         this.price = price;
+        priceWithTaxes=calcularIva(price);
         this.productTypeId = productTypeId;
-        this.priceWithTaxes=calcularIva(price);
     }
 
 
