@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmls:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Tipos Productos</title>
+    <style>
+        table, th, td {
+          border:1px solid black;
+          width: 30%;
+        }
+        </style>
+        <body>
+        
+</head>
+
+<body>
+    <h1>Tipos Productos</h1>
+    <title>Productos</title>
+    <table >
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+        </tr> 
+        <!--tipoProductos lo cogemos del GetMapping("/ListadoTipoProductos")-->
+        <tr th:each="productType : ${tipProduc}">
+            <td th:text="${productType.id}"></td>
+            <td th:text="${productType.name}"></td>
+            <td th:text="${productType.description}"></td>
+        </tr>
+    </table>
+
+    <!--Llama a la funcion anyadir en UserController-->
+    <a href="/anyadir"><button style="margin-top: 20px;">Productos</button></a>
+    
+    <!-- <div>
+
+        <h2>Datos usuario</h2>
+
+        Mediante el metodo post mandamos datos a la URL
+        <form method="post" action="" th:action="@{/CreateUser}" th:object="${CreateUser}">
+        <label>Nombre: </label><input type="text" th:field="*{name}"><br>
+        <label>Apellido: </label><input type="text" th:field="*{lastname}"><br>
+        <label>Email: </label><input type="text" th:field="*{email}"><br>
+        <button type="submit">Añadir usuario</button>
+        </form>
+    </div> -->
+
+</body>
+
+</html>
